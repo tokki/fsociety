@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title %}My amazing site{% endblock %}</title>
+	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+	<div class="header pure-g">
+		<div class="pure-u-1 l-box">
+			<div class="pure-menu pure-menu-horizontal">
+				<a href="/" class="pure-menu-heading pure-menu-link">BRAND</a>
+				<ul class="pure-menu-list">
+					<li class="pure-menu-item"><a href="/movie/" class="pure-menu-link">电影</a></li>
+					<li class="pure-menu-item"><a href="/tv/" class="pure-menu-link">剧集</a></li>
+					<li class="pure-menu-item"><a href="/about/" class="pure-menu-link">关于</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="content">
+		{% block content %}
+		
+		{% endblock %}
+	</div>
+	<div class="footer pure-g">
+		<div class="pure-u-1 l-box">
+			<p>本站所有资源为爬虫自动生成均收集自互联网，没有提供影片资源存储，也未参与录制、上传。</p>
+			<p>若本站收录的资源无意侵犯了您的权益 请联系:70k666#gmail.com(#=@)</p>
+		</div>
+	</div>
+</body>
+</html>

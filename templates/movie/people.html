@@ -1,0 +1,31 @@
+{% extends "base/layout.html" %}
+
+{% block title %}影人:{{query}}{% endblock %}
+
+{% block content %}
+	<div class="movie-search">
+		<h3>{{query}}</h3>
+	{% for movie in movie_list %}
+		<div class="movie-item pure-g">
+			<div class="cover pure-u-1-5">
+				<a href="/seed/{{movie.id}}/">
+					<img src="/static/cover/{{movie.cover}}"/>
+				</a>
+				
+			</div>
+			<div class="pure-u-4-5">
+			<h3>
+			<a href="/seed/{{movie.id}}/">
+				{{movie.name}}
+			</a>
+			</h3>
+			<p><span>又名:</span> {{movie.fullname}} </p>
+			<p><span>导演: </span> {{movie.director|safe}} </p>
+			<p><span>编剧:</span> {{movie.writer|safe}}</p>
+			<p><span>主演:</span> {{movie.actor|safe}}</p>
+			</div>
+		</div>
+	{% endfor %}
+	</div>
+{% endblock %}
+

@@ -1,0 +1,100 @@
+body{
+	color:#333;
+	font-size:14px;
+}
+a{
+	color:#3b8bba;
+	text-decoration:none;
+}
+.l-box{
+	padding:1em;
+	box-sizing: border-box;
+}
+.header{
+	border-bottom:1px solid #eee;
+}
+.footer{
+	border-top:1px solid #eee;
+	font-size:13px;
+	color:#666;
+	text-align:center;
+	margin-top:30px;
+}
+
+.movie-list{
+	font-size:13px;
+	width:1120px;
+	margin:0 auto;
+}
+.movie-list .cover{
+	height:275px;
+	overflow:hidden;
+	margin-bottom:10px;
+}
+.movie-list .title{
+	margin-bottom:10px;
+}
+.movie-list .douban{
+	color:#e09015;
+}
+
+.movie-list img{
+	width:100%;
+}
+.movie{
+	width:1120px;
+	margin:0 auto;
+	position:relative;
+}
+.movie .title{
+	width:600px;
+}
+.movie .title h3{
+	color:#666;
+}
+.movie .cover img{
+	position:absolute;
+	right:10px;
+	top:50px;
+	width:200px;
+}
+.movie .info{
+	width:600px;
+	list-style:none;
+	padding:0;
+}
+.movie .info li{
+	margin-bottom:10px;
+	color:#444;
+}
+.movie .info li span{
+	color:#999;
+	display:inline-block;
+	width:50px;
+}
+.seed-list table{
+	width:100%;
+	font-size:13px;
+	line-height:170%;
+}
+.pagination{
+	padding:20px 0px;
+	text-align:center;
+	max-width:900px;
+	margin:0 auto;
+}
+.pagination .prev{float:left}
+.pagination .next{float:right}
+.page{width:1120px;margin:30px auto}
+.movie-index{
+	width:1120px;margin:30px auto;
+}
+.movie-index .movie-item{margin-bottom:30px}
+.movie-index .movie-item span{color:#999;}
+.movie-search{width:1120px;margin:30px auto}
+.movie-search .movie-item img{width:160px}
+.movie-search .movie-item {border-top:1px solid #eee;padding:20px 0px}
+.movie-search .movie-item  p b{color:red}
+.movie-search .movie-item  h3 a b{color:red}
+
+

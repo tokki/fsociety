@@ -1,0 +1,31 @@
+{% extends "base/layout.html" %}
+
+{% block title %}搜索{% endblock %}
+
+{% block content %}
+	<div class="movie-search">
+		<h3>你搜索的关键字是:{{query}}</h3>
+	{% for movie in movie_list %}
+		<div class="movie-item pure-g">
+			<div class="cover pure-u-1-5">
+				<a href="/seed/{{movie.id}}/">
+					<img src="/static/cover/{{movie.cover}}"/>
+				</a>
+				
+			</div>
+			<div class="pure-u-4-5">
+			<h3>
+			<a href="/seed/{{movie.id}}/">
+        {{movie.name|safe}} {{movie.name_en|safe}}
+			</a>
+			</h3>
+			<p><span>又名:</span> {{movie.fullname|safe}} </p>
+			<p><span>导演: </span> {{movie.director}} </p>
+			<p><span>编剧:</span> {{movie.writer}}</p>
+			<p><span>主演:</span> {{movie.actor}}</p>
+			</div>
+		</div>
+	{% endfor %}
+	</div>
+{% endblock %}
+

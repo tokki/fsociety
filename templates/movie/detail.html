@@ -1,0 +1,120 @@
+{% extends "base/layout.html" %}
+
+{% block title %}{{movie.name}}{% endblock %}
+
+{% block content %}
+	<div class="movie">
+		<div class="pure-g">
+			<div class="pure-u-1 l-box">
+
+				<div class="title">
+					<h1>
+						<span class="name">{{movie.name}} / {{movie.name_en}}</span>
+					</h1>
+					<h3>
+						豆瓣评分: <span class="douban">{{movie.rating}}</span> 
+					</h3>
+				</div>
+				<ul class="info">
+					<li>
+						<span class="year">年代:</span>
+						{{movie.year}}
+					</li>
+					<li>
+						<span class="fullname">又名:</span>
+						{{movie.fullname}}
+					</li>
+					<li>
+						<span class="category">类别:</span>
+						{{movie.category}}
+					</li>
+					<li>
+						<span class="director">导演:</span>
+						{% for director in movie.director %}
+						{% if forloop.last %}
+							<a href="/people/?q={{director}}" >{{director}}</a>
+						{% else %}
+							<a href="/people/?q={{director}}" >{{director}}</a>
+							/
+						{% endif %}
+						{% endfor %}
+					</li>
+					<li>
+						<span class="writer">编剧:</span>
+						{% for writer in movie.writer %}
+						{% if forloop.last %}
+							<a href="/people/?q={{writer}}" >{{writer}}</a>
+						{% else %}
+							<a href="/people/?q={{writer}}" >{{writer}}</a>
+							/
+						{% endif %}
+						{% endfor %}
+					</li>
+					<li>
+						<span class="actor">主演:</span>
+						{% for actor in movie.actor %}
+						{% if forloop.last %}
+							<a href="/people/?q={{actor}}" >{{actor}}</a>
+						{% else %}
+							<a href="/people/?q={{actor}}" >{{actor}}</a>
+							/
+						{% endif %}
+						{% endfor %}
+					</li>
+					<li>
+						<span>Imdb:</span>
+						<a target="_blank" href="//www.imdb.com/title/{{movie.imdb}}/">{{movie.imdb}}
+					  	</a>
+					</li>
+					<li>
+						<span>豆瓣:</span>
+						<a target="_blank" href="//movie.douban.com/subject/{{movie.douban}}/">
+							{{movie.douban}}
+						</a>
+					</li>
+				</ul>
+				<div class="cover">
+					<a href="/movie/{{movie.id}}/">
+					<img src="/static/cover/{{movie.cover}}" alt="{{movie.name}}"/>
+					</a>
+				</div>
+				<div class="seed-list">
+					<table class="pure-table">
+						<thead>
+						<tr>
+							<th style="width:50%">文件名:</th>
+							<th>大小:</th>
+							<th>画质:</th>
+							<th>下载:</th>
+              <th>字幕:</th>
+						</tr>
+						</thead>
+						<tbody>
+						{% for seed in seed_list %}
+						<tr>
+							<td>{{seed.filename}}</td>
+							<td>{{seed.size}}</td>
+							<td>{{seed.quality}}</td>
+							<td>
+								<a href="{{seed.magnet}}">
+									磁力下载
+								</a>
+              </td>
+              <td>
+								<a href="//www.zimuku.la/search?q={{movie.imdb}}"
+                  target="_blank">字幕库</a>
+                <a target="_blank"
+                  href="https://assrt.net/sub/?searchword={{movie.name}}">射手</a>
+							</td>
+							
+						</tr>
+						{% endfor %}
+						</tbody>
+					</table>
+						
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+

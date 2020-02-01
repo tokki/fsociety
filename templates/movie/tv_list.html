@@ -1,0 +1,53 @@
+{% extends "base/layout.html" %}
+
+{% block title %}电视剧{% endblock %}
+
+{% block content %}
+	<div class="movie-list">
+		<div class="pure-g">
+			{% if movie_list %}
+				{% for movie in movie_list %}
+					<div class="pure-u-1-5 l-box">
+						<div class="cover">
+							<a href="/seed/{{movie.id}}/">
+							<img src="/static/cover/{{movie.cover}}" alt="{{movie.name}}"/>
+							</a>
+						</div>
+						<div class="title">
+							<a href="/seed/{{movie.id}}">
+								<span class="name">{{movie.name}}</span>
+								<span class="douban">{{movie.rating}}</span> 
+							</a>
+						</div>
+					</div>
+				{% endfor %}
+			{% else %}
+				<div class="pure-u-1 l-box">
+					<p>没有了</p>
+				</div>
+			{% endif %}
+		</div>
+	</div>
+	<div class="pagination">
+		<span class="prev">
+			{% if movie_list.has_previous %}
+				<a href="?page={{ movie_list.previous_page_number }}" class='pure-button'>上一页</a>
+			{% else %}
+				<a href="/" class='pure-button pure-button-disabled'>上一页</a>
+			{% endif %}
+		</span>
+
+		<span class="current">
+			第{{ movie_list.number }}页/共{{ movie_list.paginator.num_pages }}页
+		</span>
+
+		<span class="next">
+			{% if movie_list.has_next %}
+				<a href="?page={{ movie_list.next_page_number }}" class="pure-button">下一页</a>
+			{% else %}
+				<a href="/" class="pure-button pure-button-disabled">下一页</a>
+			{% endif %}
+		</span>
+	</div>
+{% endblock %}
+

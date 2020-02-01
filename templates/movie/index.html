@@ -1,0 +1,25 @@
+{% extends "base/layout.html" %}
+
+{% block title %}首页{% endblock %}
+
+{% block content %}
+	<div class="movie-index">
+	<h3>最近的更新</h3>
+	{% for item in item_list %}
+		<div class="movie-item">
+			<h3>
+			{% if item.is_movie%}
+				<span>电影</span>
+			{% else %}
+				<span>电视剧</span>
+			{% endif %}
+			<a href="/seed/{{item.id}}">
+				{{item.name}} {{item.rating}}
+			</a>
+			</h3>
+			<p> <span>导演: </span> {{item.director}} / <span>又名:</span> {{item.fullname}} / <span>主演:</span> {{item.actor}}</p>
+		</div>
+	{% endfor %}
+	</div>
+{% endblock %}
+
